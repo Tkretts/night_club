@@ -67,7 +67,7 @@ class NightClub(object):
         """ It's Party Time!
         """
         # Вывесим рекламный баннер на входе
-        print 'Ночной клуб открыт! Добро пожаловать!'
+        print 'Ночной клуб открыт!'
 
         for song in self.play_songs():
             print 'Играет {0}'.format(song.style.name)
@@ -78,6 +78,8 @@ class NightClub(object):
             sleep(song.duration)
 
             print
+
+        print 'Ночной клуб закрывается! До новых встреч!'
 
 
 class Dancer(object):
@@ -98,9 +100,9 @@ class Dancer(object):
         self.name = name or helpers.NAMES[self.sex][
             randint(0, len(helpers.NAMES[self.sex])) - 1]
 
-        self.abilities.update({
+        self.abilities = {
             x.name: randint(0, 1) for x in styles
-        })
+        }
 
     def move_it(self, style):
         """ I like to move it, move it!
